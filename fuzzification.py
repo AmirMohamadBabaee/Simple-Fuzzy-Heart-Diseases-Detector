@@ -87,3 +87,24 @@ def fuzzify_sex(sex):
     else:
         return
     return sex_fuzzified
+
+def fuzzify_chest_pain(chest_pain):
+    """
+    Singleton Fuzzifier
+
+    chest_pain == 1 : Typical Angina
+    chest_pain == 2 : Atypical Angina
+    chest_pain == 3 : Non-anginal Pain
+    chest_pain == 4 : Asymptomatic
+    """
+    if chest_pain == 1:
+        chest_pain_fuzzified = (1, 0, 0, 0)
+    elif chest_pain == 2:
+        chest_pain_fuzzified = (0, 1, 0, 0)
+    elif chest_pain == 3:
+        chest_pain_fuzzified = (0, 0, 1, 0)
+    elif chest_pain == 4:
+        chest_pain_fuzzified = (0, 0, 0, 1)
+    else:
+        return
+    return chest_pain_fuzzified
