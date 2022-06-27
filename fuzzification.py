@@ -226,3 +226,32 @@ def fuzzify_chest_pain(chest_pain):
     else:
         return
     return chest_pain_fuzzified
+
+def fuzzify(input_dict):
+
+    age_dict = fuzzify_age(float(input_dict['age']))
+    blood_pressure_dict = fuzzify_blood_pressure(float(input_dict['blood_pressure']))
+    blood_sugar_dict = fuzzify_blood_sugar(float(input_dict['blood_sugar']))
+    cholesterol_dict = fuzzify_cholesterol(float(input_dict['cholesterol']))
+    heart_rate_dict = fuzzify_heart_rate(float(input_dict['heart_rate']))
+    ecg_dict = fuzzify_ECG(float(input_dict['ecg']))
+    old_peak_dict = fuzzify_old_peak(float(input_dict['old_peak']))
+    exercise_dict = fuzzify_exercise(float(input_dict['exercise']))
+    thallium_dict = fuzzify_thallium(float(input_dict['thallium_scan']))
+    sex_dict = fuzzify_sex(float(input_dict['sex']))
+    chest_pain_dict = fuzzify_chest_pain(float(input_dict['chest_pain']))
+
+    input_fuzzified = {}
+    input_fuzzified.update(age_dict)
+    input_fuzzified.update(blood_pressure_dict)
+    input_fuzzified.update(blood_sugar_dict)
+    input_fuzzified.update(cholesterol_dict)
+    input_fuzzified.update(heart_rate_dict)
+    input_fuzzified.update(ecg_dict)
+    input_fuzzified.update(old_peak_dict)
+    input_fuzzified.update(exercise_dict)
+    input_fuzzified.update(thallium_dict)
+    input_fuzzified.update(sex_dict)
+    input_fuzzified.update(chest_pain_dict)
+    
+    return input_fuzzified
