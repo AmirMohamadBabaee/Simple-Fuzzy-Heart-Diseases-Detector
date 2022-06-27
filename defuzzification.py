@@ -18,6 +18,41 @@ def fuzzify_health(health_value):
     }
     return health_dict
 
+def health_status(center_of_mass):
+    final_string = ''
+    if center_of_mass < 1.78:
+        if len(final_string) > 0:
+            final_string += ' & healthy'
+        else: 
+            final_string += 'healthy'
+
+    if center_of_mass > 1 and center_of_mass < 2.51:
+        if len(final_string) > 0:
+            final_string += ' & sick1'
+        else: 
+            final_string += 'sick1'
+
+    if center_of_mass > 1.78 and center_of_mass < 3.25:
+        if len(final_string) > 0:
+            final_string += ' & sick2'
+        else: 
+            final_string += 'sick2'
+
+    if center_of_mass > 1.5 and center_of_mass < 4.5:
+        if len(final_string) > 0:
+            final_string += ' & sick3'
+        else: 
+            final_string += 'sick3'
+
+    if center_of_mass > 3.25:
+        if len(final_string) > 0:
+            final_string += ' & sick4'
+        else: 
+            final_string += 'sick4'
+
+    final_string += f': {center_of_mass}'
+    return final_string
+
 def defuzzify_health(inference_dict :dict, step=1e-2):
     weighted_sum = 0    # numerator
     weights_sum = 0     # denominator
@@ -36,11 +71,6 @@ def defuzzify_health(inference_dict :dict, step=1e-2):
     print('com:', com)
     com_health_dict = fuzzify_health(com)
     print('com_health_dict:', com_health_dict)
-    max_variable = None
-    max_value = -1
-    for com_key, com_value in com_health_dict['health'].items():
-        if max_value < com_value:
-            max_value = com_value
-            max_variable = com_key
+    final_status = health_status(com)
 
-    return max_variable
+    return final_status
