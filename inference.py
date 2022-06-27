@@ -99,6 +99,7 @@ def rule_evaluation(rules_dict :dict, input_fuzzified_dict : dict):
             conclusion_current_value = conclusion_dict[conclusion_variable][conclusion_value]
             conclusion_dict[conclusion_variable][conclusion_value] = max(rule_power, conclusion_current_value)
 
+    print('inference_dict:', conclusion_dict)
     return conclusion_dict
 
 
