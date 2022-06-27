@@ -150,7 +150,13 @@ def fuzzify_thallium(thallium):
             }
         }
     else:
-        return
+        thallium_fuzzified = {
+            'thallium': {
+                'normal': 0,
+                'medium': 0,
+                'high'  : 0
+            }
+        }
     return thallium_fuzzified
 
 def fuzzify_sex(sex):
